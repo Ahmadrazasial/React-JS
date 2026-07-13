@@ -1,14 +1,15 @@
-import { useState,useEffect } from 'react'
+import { useState, useEffect } from 'react'
 import reactLogo from './assets/react.svg'
 import viteLogo from './assets/vite.svg'
 import heroImg from './assets/hero.png'
 import './App.css'
 import Navbar from './components/Navbar.jsx'
+import Timer from './components/Timer.jsx'
 
 function App() {
 
-  const colorArray = ["white","red","blue","green","yellow","orange","purple","pink"]
-  
+  const colorArray = ["white", "red", "blue", "green", "yellow", "orange", "purple", "pink"]
+
   function getRandomColor() {
     const randomIndex = Math.floor(Math.random() * colorArray.length);
     return colorArray[randomIndex];
@@ -17,27 +18,49 @@ function App() {
   const [count, setCount] = useState(0)
   const [color, setColor] = useState(colorArray[3])
 
-  useEffect(() =>{
-    alert('App.jsx mounted')
-  },[])
+// Runs only when the count state changes
+  useEffect(() => {
+    alert("Hey I will run on count change");
+    setColor(getRandomColor());
+    clearInterval()
+  }, [count])
 
-  useEffect(() =>{
-    alert("count changed");
-  })
-  useEffect(() =>{
-  setColor(getRandomColor());
-clearInterval()
-  },[count])
+// Runs only on first render but also sets an interval to change the color every 20 seconds
+  useEffect(() => {
+     function handleResize() {
+    console.log(window.innerWidth);
+  }
+ 
+    let startTime = Date.now();
+    const duration =   20000;
 
-  useEffect(() =>{
+    
+        
+        
+    
     setInterval(() => {
+      const elapsedTime = Date.now() - startTime;
+      if(elapsedTime >= duration){
       setColor(getRandomColor());
-    }, 20000);
-  },[])
+      startTime = Date.now()
+    }
+    }, 100);
+     window.addEventListener("resize", handleResize);
+    return () => {
+      clearInterval()
+      alert("Hey App was unmounted");
+      window.removeEventListener("resize", handleResize);
+      console.log("Event listener removed");
+    }
+  
+  }, [])
+
+
 
   return (
     <>
-    <Navbar color={color} />
+      <Navbar color={color} />
+      <Timer />
       <section id="center">
         <div className="hero">
           <img src={heroImg} className="base" width="170" height="179" alt="" />
