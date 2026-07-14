@@ -32,11 +32,8 @@ function App() {
   }
  
     let startTime = Date.now();
-    const duration =   20000;
-
-    
-        
-        
+    const duration = 20000; // 20 seconds in milliseconds
+    // console.log('durationMs', durationMs)
     
     setInterval(() => {
       const elapsedTime = Date.now() - startTime;

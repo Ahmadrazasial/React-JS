@@ -1,24 +1,23 @@
 import React from "react";
 
 function Timer() {
-    const [Time,setTime] = React.useState(20);
-    React.useEffect(()=>{
-    let startTime = Date.now();
-    const duration =   20000;
+    const [Time, setTime] = React.useState(0);
+    React.useEffect(() => {
+        let startTime = Date.now();
+        // const duration = startTime + 20000;
 
-    
-
-    const interval = setInterval(()=>{
-        const elapsedTime = Date.now() - startTime;
-        const remainingTime = Math.ceil((duration - elapsedTime) / 1000);
-        setTime(remainingTime);
-        if(remainingTime <= 0){
-            startTime = Date.now();
-            setTime(20);
-        }
-    },1000);
-return () => clearInterval(interval);
-    },[])
+        const interval = setInterval(() => {
+            const elapsedTime = Math.ceil((Date.now() - startTime)/1000);
+            console.log(elapsedTime)
+            // const remainingTime = Math.ceil(elapsedTime / 1000);
+            setTime(elapsedTime);
+            if (elapsedTime >= 20) {
+                startTime = Date.now();
+                setTime(0);
+            }
+        }, 1000);
+        return () => clearInterval(interval);
+    }, [])
     return Time
 }
 
