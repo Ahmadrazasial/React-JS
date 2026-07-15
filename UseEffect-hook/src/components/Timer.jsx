@@ -8,7 +8,7 @@ function Timer() {
 
         const interval = setInterval(() => {
             const elapsedTime = Math.ceil((Date.now() - startTime)/1000);
-            console.log(elapsedTime)
+            // console.log(elapsedTime)
             // const remainingTime = Math.ceil(elapsedTime / 1000);
             setTime(elapsedTime);
             if (elapsedTime >= 20) {
