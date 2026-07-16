@@ -57,13 +57,11 @@ function App() {
     localStorage.setItem("Navbar theme" , color);
 
     const value = localStorage.getItem("Navbar theme");
+    
 
     if(value){
       console.log("Theme stored");
     }
-   
-
-   
 
   },[color])
 
