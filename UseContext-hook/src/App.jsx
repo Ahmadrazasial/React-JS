@@ -6,6 +6,7 @@ import Dashboard from './components/Dashboard';
 import { UserContext } from "./UserContext";
 import Update from './Update-object';
 import './App.css'
+import Inputsthemes from './components/Inputs&themes';
 
 function App() {
   const [count, setCount] = useState(0)
@@ -19,6 +20,7 @@ function App() {
       <Dashboard />
     </UserContext.Provider>
   <Update/>
+  <Inputsthemes/>
       <section id="center">
         <div className="hero">
           <img src={heroImg} className="base" width="170" height="179" alt="" />
