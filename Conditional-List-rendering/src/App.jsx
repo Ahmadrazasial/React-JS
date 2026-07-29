@@ -3,6 +3,8 @@ import reactLogo from './assets/react.svg'
 import viteLogo from './assets/vite.svg'
 import heroImg from './assets/hero.png'
 import './App.css'
+import List from './condition'
+
 
 function App() {
   const [count, setCount] = useState(0)
@@ -22,8 +24,18 @@ function ShowBtn() {
   //   btn ? <button>i am a true btn 0</button> : <button>i am a false btn 0</button>
   // )
 
-  return btn ?  <button>i am a true btn</button> :  <button>i am a false btn</button>
+  //Simply ternary
+  // return btn ?  <button>i am a true btn</button> :  <button>i am a false btn</button>
      
+
+  //Using Ampersand
+
+  // return btn && <button>This is only true btn</button>
+
+  if(btn){
+    return null
+  }
+  return <button>This is only true btn</button>
 }
   return (
     <>
@@ -39,6 +51,7 @@ function ShowBtn() {
             Edit <code>src/App.jsx</code> and save to test <code>HMR</code>
           </p>
         </div>
+<List/>
         <ShowBtn/>
         <button
           type="button"
