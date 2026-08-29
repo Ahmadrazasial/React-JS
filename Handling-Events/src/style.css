@@ -49,7 +49,12 @@
     filter: invert(1) brightness(2);
   }
 }
-
+.red{
+  width: 344px;
+  height:255px;
+  background-color: red;
+  border:1px solid black;
+}
 body {
   margin: 0;
 }
