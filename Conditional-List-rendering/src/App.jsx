@@ -4,6 +4,8 @@ import viteLogo from './assets/vite.svg'
 import heroImg from './assets/hero.png'
 import './App.css'
 import List from './condition'
+import Scientists from './components/scientists'
+import RecipeList from './components/RecipeList'
 
 
 function App() {
@@ -87,13 +89,15 @@ function App() {
             }`}>
               <h3 className='text-blue-600 font-bold tran'>List of courses</h3>
               {lists.map(list =>{
-                return(
-              <div key={list.id}>
+                return( 
+                <div key={list.id}>
               {<Item  list={list}/>}
               </div>
                 )
               })}
             </ul>
+            {btn && <Scientists />}
+            <RecipeList/>
         <button
           type="button"
           className="counter"
