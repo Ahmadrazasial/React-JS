@@ -5,7 +5,8 @@ import heroImg from './assets/hero.png'
 import './App.css'
 import Navbar from './components/Navbar.jsx'
 import Timer from './components/Timer.jsx'
-
+import { createConnction } from './components/chat.jsx'
+import { ServerRoom } from './components/ChatRoom.jsx'
 function App() {
 
   const colorArray = ["white", "red", "blue", "green", "yellow", "orange", "purple", "pink"]
@@ -19,57 +20,59 @@ function App() {
   const [color, setColor] = useState(colorArray[3])
 
 // Runs only when the count state changes
-  useEffect(() => {
-    alert("Hey I will run on count change");
-    setColor(getRandomColor());
-    clearInterval()
-  }, [count])
+  // useEffect(() => {
+  //   alert("Hey I will run on count change");
+  //   setColor(getRandomColor());
+  //   clearInterval()
+  // }, [count])
 
 // Runs only on first render but also sets an interval to change the color every 20 seconds
-  useEffect(() => {
-     function handleResize() {
-    console.log(window.innerWidth);
-  }
+  // useEffect(() => {
+  //    function handleResize() {
+  //   console.log(window.innerWidth);
+  // }
  
-    let startTime = Date.now();
-    const duration = 20000; // 20 seconds in milliseconds
-    // console.log('durationMs', durationMs)
+  //   let startTime = Date.now();
+  //   const duration = 20000; // 20 seconds in milliseconds
+  //   // console.log('durationMs', durationMs)
     
-    setInterval(() => {
-      const elapsedTime = Date.now() - startTime;
-      if(elapsedTime >= duration){
-      setColor(getRandomColor());
-      startTime = Date.now()
-    }
-    }, 100);
-     window.addEventListener("resize", handleResize);
-    return () => {
-      clearInterval()
-      alert("Hey App was unmounted");
-      window.removeEventListener("resize", handleResize);
-      console.log("Event listener removed");
-    }
+  //   setInterval(() => {
+  //     const elapsedTime = Date.now() - startTime;
+  //     if(elapsedTime >= duration){
+  //     setColor(getRandomColor());
+  //     startTime = Date.now()
+  //   }
+  //   }, 100);
+  //    window.addEventListener("resize", handleResize);
+  //   return () => {
+  //     clearInterval()
+  //     alert("Hey App was unmounted");
+  //     window.removeEventListener("resize", handleResize);
+  //     console.log("Event listener removed");
+  //   }
   
-  }, [])
+  // }, [])
 
-  useEffect (()=>{
+  // useEffect (()=>{
 
-    localStorage.setItem("Navbar theme" , color);
+  //   localStorage.setItem("Navbar theme" , color);
 
-    const value = localStorage.getItem("Navbar theme");
+  //   const value = localStorage.getItem("Navbar theme");
     
 
-    if(value){
-      console.log("Theme stored");
-    }
+  //   if(value){
+  //     console.log("Theme stored");
+  //   }
 
-  },[color])
+  // },[color])
 
+  //React Docs
 
+  
   return (
     <>
       <Navbar color={color} />
-      <Timer />
+      {/* <Timer /> */}
       <section id="center">
         <div className="hero">
           <img src={heroImg} className="base" width="170" height="179" alt="" />
@@ -176,6 +179,10 @@ function App() {
 
       <div className="ticks"></div>
       <section id="spacer"></section>
+      <section id="reactdocs">
+        <h1>React Docs</h1>
+        <ServerRoom />
+      </section>
     </>
   )
 }
