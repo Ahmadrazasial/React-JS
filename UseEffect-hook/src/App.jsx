@@ -7,6 +7,8 @@ import Navbar from './components/Navbar.jsx'
 import Timer from './components/Timer.jsx'
 import { createConnction } from './components/chat.jsx'
 import { ServerRoom } from './components/ChatRoom.jsx'
+import { PointerMove } from './components/pointermove.jsx'
+import { AnimationFadeIn } from './components/AnimationFadeIn.jsx'
 function App() {
 
   const colorArray = ["white", "red", "blue", "green", "yellow", "orange", "purple", "pink"]
@@ -19,23 +21,23 @@ function App() {
   const [count, setCount] = useState(0)
   const [color, setColor] = useState(colorArray[3])
 
-// Runs only when the count state changes
+  // Runs only when the count state changes
   // useEffect(() => {
   //   alert("Hey I will run on count change");
   //   setColor(getRandomColor());
   //   clearInterval()
   // }, [count])
 
-// Runs only on first render but also sets an interval to change the color every 20 seconds
+  // Runs only on first render but also sets an interval to change the color every 20 seconds
   // useEffect(() => {
   //    function handleResize() {
   //   console.log(window.innerWidth);
   // }
- 
+
   //   let startTime = Date.now();
   //   const duration = 20000; // 20 seconds in milliseconds
   //   // console.log('durationMs', durationMs)
-    
+
   //   setInterval(() => {
   //     const elapsedTime = Date.now() - startTime;
   //     if(elapsedTime >= duration){
@@ -50,7 +52,7 @@ function App() {
   //     window.removeEventListener("resize", handleResize);
   //     console.log("Event listener removed");
   //   }
-  
+
   // }, [])
 
   // useEffect (()=>{
@@ -58,7 +60,7 @@ function App() {
   //   localStorage.setItem("Navbar theme" , color);
 
   //   const value = localStorage.getItem("Navbar theme");
-    
+
 
   //   if(value){
   //     console.log("Theme stored");
@@ -68,7 +70,7 @@ function App() {
 
   //React Docs
 
-  
+
   return (
     <>
       <Navbar color={color} />
@@ -182,6 +184,15 @@ function App() {
       <section id="reactdocs">
         <h1>React Docs</h1>
         <ServerRoom />
+        {/* <div className="box" style={{
+          width: '100% '
+          , height: '20%',
+          border: '1px solid black',
+        }}>
+          
+        </div> */}
+        <PointerMove />
+        <AnimationFadeIn/>
       </section>
     </>
   )

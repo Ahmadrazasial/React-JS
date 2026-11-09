@@ -10,9 +10,9 @@ const Navbar = ({ color }) => {
   // Runs only on first render
   useEffect(() => {
     alert('Hey I will run only on first render');
-    return () => {
-      alert("Hey Navbar was unmounted");
-    }
+    // return () => {
+    //   alert("Hey Navbar was unmounted");
+    // }
   }, [])
 
 // Runs only when the color prop changes
