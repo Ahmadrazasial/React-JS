@@ -4,16 +4,16 @@ import { Animation } from './animation.jsx';
 function Welcome() {
     const ref = useRef(null);
     useEffect(() => {
-        const stopAnimation = Animation({ node: ref.current, duration: 1000 });
-
+        const animate = Animation({ node: ref.current, duration: 1000 });
+        ;
         return () => {
-            stopAnimation();
+        animate()
         }
     }, [])
     return (
         <>
             <h1 ref={ref} style={{
-                // opacity: 0,
+                opacity: 0,
                 color: 'white',
                 padding: 50,
                 textAlign: 'center',

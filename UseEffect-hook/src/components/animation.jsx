@@ -1,23 +1,37 @@
-export function Animation({node,duration}) {
-   if(!node) return null;
+export function Animation({ node, duration }) {
+  let frameId = null;
+  let startTime = performance.now();
+  // console.log(startTime,frameId)
 
-   let frameId = null
-   const startTime = performance.now();
 
-   function onFrame(){
-    const elapsedtime = performance.now() - startTime;
-    const progress = Math.min(elapsedtime / duration, 1);
+
+  function onProgress(progress) {
     node.style.opacity = progress;
-    if(progress < 1){
-        frameId = requestAnimationFrame(onFrame)
-    } 
-    node.style.opacity = '0';
-    frameId = requestAnimationFrame(onFrame)
-   }
+  }
 
-   return function stop(){
-    
-     cancelAnimationFrame(frameId);
-    
-   };
+  function onFrame() {
+    const elapsedTime = performance.now() - startTime;
+    console.log(elapsedTime)
+    const progress = Math.min(elapsedTime / duration, 1);
+
+    onProgress(progress);
+    if (progress < 1) {
+      frameId = requestAnimationFrame(onFrame);
+      console.log(frameId)
+    }
+  }
+
+  if (duration <= 0) {
+    onProgress(1);
+  } else {
+    onProgress(0);
+    startTime = performance.now();
+    frameId = requestAnimationFrame(onFrame)
+    // console.log(frameId);
+  }
+
+
+  return function stop() {
+    cancelAnimationFrame(frameId);
+  }
 }

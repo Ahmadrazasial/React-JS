@@ -9,6 +9,8 @@ import { createConnction } from './components/chat.jsx'
 import { ServerRoom } from './components/ChatRoom.jsx'
 import { PointerMove } from './components/pointermove.jsx'
 import { AnimationFadeIn } from './components/AnimationFadeIn.jsx'
+import { BoxComponent } from './components/Box.jsx'
+import { MapComponent } from './components/Map.jsx'
 function App() {
 
   const colorArray = ["white", "red", "blue", "green", "yellow", "orange", "purple", "pink"]
@@ -193,6 +195,8 @@ function App() {
         </div> */}
         <PointerMove />
         <AnimationFadeIn/>
+        <MapComponent/>
+        <BoxComponent/>
       </section>
     </>
   )
