@@ -81,7 +81,7 @@ function Button() {
     const {setCondition} = useContext(ListContext);
     const {condition} = useContext(ListContext);
     return(
-        <button onClick={()=>setCondition(!condition)}>{condition ? "I did'nt"  : "I did"}</button>
+        <button className='border cursor-pointer px-2 py-1 border-violet-600 rounded-sm ' onClick={()=>setCondition(!condition)}>{condition ? "I did'nt"  : "I did"}</button>
     )
 
 }

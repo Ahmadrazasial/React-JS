@@ -36,8 +36,8 @@ const people = [{
 export default function Scientists() {
     const chemists = people.filter(person =>person.profession === "chemist");
 
-    const ListItems = chemists.map(person =>
-        <li key={person.id}>
+    const ListItems = chemists.map(person =>{
+       return <li key={person.id}>
             <img src={getImageUrl(person)} alt={person.name} />
             <p>
                 <b>{person.name}:</b>
@@ -46,7 +46,7 @@ export default function Scientists() {
                 }
             </p>
         </li>
-        
+    }
     )
     return <ul>{ListItems}</ul>
 }
