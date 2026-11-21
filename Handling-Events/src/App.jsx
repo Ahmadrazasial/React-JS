@@ -3,12 +3,12 @@ import heroImg from './assets/hero.png'
 import reactLogo from './assets/react.svg'
 import viteLogo from './assets/vite.svg'
 import './app.css'
-// import { Toolbar } from './components/EventHandlers'
-import { Toolbar } from './components/Expicitly'
+import { Toolbar } from './components/EventHandlers'
+// import { Toolbar } from './components/Expicitly'
 
 function App() {
   const [name, setName] = useState("Ahmad");
-  const [form, setForm] = useState({ email: " ", phone: " " });
+  const [form, setForm] = useState({});
 
   const handleClick = () => {
     alert("I am clicked")
@@ -41,11 +41,12 @@ function App() {
       <input type="text" className="name w-[20%] border rounded px-3 py-1" value={name} onChange={handleChange} />
 
       <div className="inputs">
-        <input type="text" name="email" value={form.email} onChange={valueChange} className="email w-[20%] border rounded px-3 py-1" />
-        <input type="text" name='phone' value={form.phone} onChange={valueChange} className="phone w-[20%] border rounded px-3 py-1" />
+        <input type="text" name="email" value={form.email?form.email:""} onChange={valueChange} className="email w-[20%] border rounded px-3 py-1" />
+        <input type="text" name='phone' value={form.phone?form.phone : ""} onChange={valueChange} className="phone w-[20%] border rounded px-3 py-1" />
       </div>
       {/* <Toolbar/> */}
-      <Toolbar onPlayMovie={() => alert("Playing!")} />
+      {/* <Toolbar onPlayMovie={() => alert("Playing!")} /> */}
+      <Toolbar/>
     </>
 
   )

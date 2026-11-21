@@ -11,4 +11,3 @@ export  function Toolbar({ onPlayMovie }) {
     </button>
   );
 }
-<Toolbar onPlayMovie={() => alert("Playing!")} />
